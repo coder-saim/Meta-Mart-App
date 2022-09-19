@@ -27,7 +27,7 @@
         android:layout_marginBottom="255dp"
         android:background="@drawable/round_bg"
         android:padding="16dp"
-        android:text="Sing Out"
+        android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
