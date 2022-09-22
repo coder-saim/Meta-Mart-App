@@ -13,6 +13,8 @@ import android.widget.Button;
 import com.example.votenow.databinding.ActivityBottomNavigationBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 public class BottomNavigation extends AppCompatActivity {
 
     ActivityBottomNavigationBinding binding;
@@ -24,6 +26,8 @@ public class BottomNavigation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBottomNavigationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
 
         replaceFragment(new HomeFragment());
