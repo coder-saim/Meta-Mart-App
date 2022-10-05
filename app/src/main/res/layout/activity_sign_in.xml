@@ -104,11 +104,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="269dp"
+        android:layout_width="260dp"
         android:layout_height="47dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="56dp"
-        android:text="Hey, already have an account!"
+        android:text="Hi, already have an account!"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"

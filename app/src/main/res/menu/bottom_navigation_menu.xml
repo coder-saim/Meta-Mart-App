@@ -10,9 +10,9 @@
         android:icon="@drawable/ic_notifications"
         android:title="Notifications" />
     <item
-        android:id="@+id/create"
-        android:icon="@drawable/ic_add"
-        android:title="Create Now"/>
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_cart"
+        android:title="Cart Now"/>
     <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"

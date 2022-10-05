@@ -26,13 +26,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="269dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="56dp"
-        android:text="Hey, there creating an account is super easy!"
+        android:text="Hi there, creating an account is super easy!"
         android:textColor="@color/white"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

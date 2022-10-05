@@ -5,21 +5,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.votenow.databinding.ActivityBottomNavigationBinding;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
 public class BottomNavigation extends AppCompatActivity {
 
     ActivityBottomNavigationBinding binding;
-
-    private Button singOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +35,8 @@ public class BottomNavigation extends AppCompatActivity {
                 case R.id.notifications:
                     replaceFragment(new NotificationsFragment());
                     break;
-                case R.id.create:
-                    replaceFragment(new CreateFragment());
+                case R.id.cart:
+                    replaceFragment(new CartFragment());
                     break;
                 case R.id.settings:
                     replaceFragment(new SettingsFragment());
@@ -55,15 +49,6 @@ public class BottomNavigation extends AppCompatActivity {
             return true;
         });
 
-
-//        singOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseAuth.getInstance().signOut();
-//                startActivity(new Intent(BottomNavigation.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-//                finish();
-//            }
-//        });
     }
 
 
