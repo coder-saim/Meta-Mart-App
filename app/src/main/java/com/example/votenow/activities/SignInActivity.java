@@ -8,9 +8,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.votenow.R;
@@ -25,6 +28,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private EditText txtEmail,txtPassword;
     private Button loginButton,registerButton,forgotButton;
+    private ImageView hiddenEye;
 
     private SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME = "mypref";
@@ -45,6 +49,8 @@ public class SignInActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
         forgotButton = findViewById(R.id.forgotButton);
+        hiddenEye = findViewById(R.id.hiddenEye);
+        hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
 
         auth = FirebaseAuth.getInstance();
 
@@ -54,6 +60,28 @@ public class SignInActivity extends AppCompatActivity {
             Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);
             startActivity(intent);
         }
+
+
+
+        hiddenEye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(SignInActivity.this, "Button clicked", Toast.LENGTH_SHORT).show();
+
+                if(txtPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
+                    txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hiddenEye.setImageResource(R.drawable.ic_show_pwd);
+                }
+                else{
+                    txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
+                }
+            }
+        });
+
+
+
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +149,11 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+
+
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
