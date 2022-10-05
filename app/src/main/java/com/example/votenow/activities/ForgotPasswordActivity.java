@@ -1,8 +1,10 @@
-package com.example.votenow;
+package com.example.votenow.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.votenow.R;
 
 import java.util.Objects;
 

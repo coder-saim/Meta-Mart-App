@@ -1,10 +1,11 @@
-package com.example.votenow;
+package com.example.votenow.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,8 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.votenow.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,11 @@ public class SignInActivity extends AppCompatActivity {
 
     private EditText txtEmail,txtPassword;
     private Button loginButton,registerButton,forgotButton;
+
+    private SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
 
     private FirebaseAuth auth;
 
@@ -41,6 +47,13 @@ public class SignInActivity extends AppCompatActivity {
         forgotButton = findViewById(R.id.forgotButton);
 
         auth = FirebaseAuth.getInstance();
+
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String loginInfo = sharedPreferences.getString(KEY_PASSWORD,null);
+        if(loginInfo != null){
+            Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);
+            startActivity(intent);
+        }
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +79,13 @@ public class SignInActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
+
+                                    //saving data using shared-preferences
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString(KEY_EMAIL,str_email);
+                                    editor.putString(KEY_PASSWORD,str_password);
+                                    editor.apply();
+
                                     Toast.makeText(SignInActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
                                     pd.dismiss();
                                     Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);

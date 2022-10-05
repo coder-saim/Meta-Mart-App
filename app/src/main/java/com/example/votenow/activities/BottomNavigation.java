@@ -1,4 +1,4 @@
-package com.example.votenow;
+package com.example.votenow.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,6 +7,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.votenow.fragments.CartFragment;
+import com.example.votenow.fragments.HomeFragment;
+import com.example.votenow.fragments.NotificationsFragment;
+import com.example.votenow.fragments.ProfileFragment;
+import com.example.votenow.R;
+import com.example.votenow.fragments.SettingsFragment;
 import com.example.votenow.databinding.ActivityBottomNavigationBinding;
 
 import java.util.Objects;
