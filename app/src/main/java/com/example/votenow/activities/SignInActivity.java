@@ -52,7 +52,6 @@ public class SignInActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         forgotButton = findViewById(R.id.forgotButton);
 
-
         auth = FirebaseAuth.getInstance();
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
