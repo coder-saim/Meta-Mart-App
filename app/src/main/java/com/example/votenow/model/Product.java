@@ -1,5 +1,6 @@
 package com.example.votenow.model;
 
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -82,4 +83,7 @@ public class Product implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+public class Product {
+
 }

@@ -1,6 +1,7 @@
 package com.example.votenow.model;
 
 public class Category {
+
     private String name, icon, color, brief;
     private int id;
 
