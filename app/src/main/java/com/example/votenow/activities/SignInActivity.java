@@ -50,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
         forgotButton = findViewById(R.id.forgotButton);
         hiddenEye = findViewById(R.id.hiddenEye);
-        hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
+        //hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
 
         auth = FirebaseAuth.getInstance();
 
@@ -70,11 +70,11 @@ public class SignInActivity extends AppCompatActivity {
 
                 if(txtPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())){
                     txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    hiddenEye.setImageResource(R.drawable.ic_show_pwd);
+                    //hiddenEye.setImageResource(R.drawable.ic_show_pwd);
                 }
                 else{
                     txtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
+                    //hiddenEye.setImageResource(R.drawable.ic_hide_pwd);
                 }
             }
         });

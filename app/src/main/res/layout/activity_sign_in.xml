@@ -162,7 +162,8 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtPassword"
         app:layout_constraintEnd_toEndOf="@+id/txtPassword"
-        app:layout_constraintTop_toTopOf="@+id/txtPassword"
-        app:srcCompat="@drawable/ic_hide_pwd" />
+        app:layout_constraintTop_toTopOf="@+id/txtPassword"/>
+<!--
+        app:srcCompat="@drawable/ic_hide_pwd"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
