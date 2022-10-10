@@ -1,4 +1,4 @@
-# Vote-Now-App
+# Meta-Mart-App
 Android Application
 using Android Studio
 Team Members: Md. Saim Ahmmed Utsho
