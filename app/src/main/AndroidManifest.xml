@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.votenow">
+    package="com.example.metamart">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,40 +16,40 @@
         android:theme="@style/Theme.VoteNow"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name="com.example.metamart.activities.ProfileActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.SearchActivity"
+            android:name="com.example.metamart.activities.SearchActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.ProductDetailsActivity"
+            android:name="com.example.metamart.activities.ProductDetailsActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.PaymentActivity"
+            android:name="com.example.metamart.activities.PaymentActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.CheckoutActivity"
+            android:name="com.example.metamart.activities.CheckoutActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.CategoryActivity"
+            android:name="com.example.metamart.activities.CategoryActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.CartActivity"
+            android:name="com.example.metamart.activities.CartActivity"
             android:exported="false"/>
         <activity
-            android:name=".activities.ForgotPasswordActivity"
+            android:name="com.example.metamart.activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.BottomNavigation"
+            android:name="com.example.metamart.activities.BottomNavigation"
             android:exported="false" />
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name="com.example.metamart.activities.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SignInActivity"
+            android:name="com.example.metamart.activities.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.example.metamart.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

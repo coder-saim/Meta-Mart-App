@@ -1,8 +1,7 @@
-package com.example.votenow.model;
+package com.example.metamart.model;
 
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class Product implements Serializable {
 

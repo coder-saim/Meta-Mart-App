@@ -1,4 +1,4 @@
-package com.example.votenow;
+package com.example.metamart;
 
 import android.content.Context;
 

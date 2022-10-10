@@ -1,4 +1,4 @@
-package com.example.votenow.model;
+package com.example.metamart.model;
 
 public class Category {
 

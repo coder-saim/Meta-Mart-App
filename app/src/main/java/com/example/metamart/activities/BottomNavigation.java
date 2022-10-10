@@ -1,4 +1,4 @@
-package com.example.votenow.activities;
+package com.example.metamart.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,37 +8,32 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.votenow.R;
-import com.example.votenow.databinding.ActivityCartBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 import java.util.Objects;
 
-public class CartActivity extends AppCompatActivity {
-
-    ActivityCartBinding binding;
+public class BottomNavigation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCartBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        setContentView(R.layout.activity_cart);
+        setContentView(R.layout.activity_bottom_navigation);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        bottomNavigationView.setSelectedItemId(R.id.cart);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.cart:
+                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
-                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
@@ -49,5 +44,10 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
     }
+
 }
