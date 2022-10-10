@@ -54,13 +54,30 @@ public class SignInActivity extends AppCompatActivity {
 
 
         auth = FirebaseAuth.getInstance();
-
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         String loginInfo = sharedPreferences.getString(KEY_PASSWORD,null);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("Saim");
+            //The key argument here must match that used in the other activity
+            if(value.equals("logout")){
+                FirebaseAuth.getInstance().signOut();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                loginInfo = null;
+            }
+
+        }
+
+
         if(loginInfo != null){
             Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);
             startActivity(intent);
         }
+
+
 
 
 

@@ -1,68 +1,53 @@
 package com.example.votenow.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import com.example.votenow.fragments.CartFragment;
-import com.example.votenow.fragments.HomeFragment;
-import com.example.votenow.fragments.NotificationsFragment;
-import com.example.votenow.fragments.ProfileFragment;
 import com.example.votenow.R;
-import com.example.votenow.fragments.SettingsFragment;
-import com.example.votenow.databinding.ActivityBottomNavigationBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 import java.util.Objects;
 
 public class BottomNavigation extends AppCompatActivity {
 
-    ActivityBottomNavigationBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityBottomNavigationBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
-        replaceFragment(new HomeFragment());
-
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            switch (item.getItemId()){
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.notifications:
-                    replaceFragment(new NotificationsFragment());
-                    break;
-                case R.id.cart:
-                    replaceFragment(new CartFragment());
-                    break;
-                case R.id.settings:
-                    replaceFragment(new SettingsFragment());
-                    break;
-                case R.id.profile:
-                    replaceFragment(new ProfileFragment());
-                    break;
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.cart:
+                        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
             }
-
-            return true;
         });
 
-    }
 
 
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
-        fragmentTransaction.commit();
+
+
     }
 
 }
