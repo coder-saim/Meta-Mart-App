@@ -7,6 +7,7 @@
         android:title="Home" />
     <item
         android:id="@+id/cart"
+        android:icon="@drawable/ic_cart"
         android:title="Cart Now"/>
     <item
         android:id="@+id/profile"

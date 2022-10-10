@@ -84,6 +84,5 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
-public class Product {
 
 }
