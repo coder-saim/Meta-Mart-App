@@ -1,4 +1,4 @@
-package com.example.metamart.activities;
+package com.example.votenow.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,7 @@ public class CartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityCartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -37,7 +38,7 @@ public class CartActivity extends AppCompatActivity {
                     case R.id.cart:
                         return true;
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), BottomNavigation.class));
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.profile:

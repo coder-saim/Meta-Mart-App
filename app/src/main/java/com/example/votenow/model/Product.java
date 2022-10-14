@@ -1,4 +1,4 @@
-package com.example.metamart.model;
+package com.example.votenow.model;
 
 
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.example.metamart.activities;
+package com.example.votenow.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

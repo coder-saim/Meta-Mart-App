@@ -1,4 +1,4 @@
-package com.example.metamart.activities;
+package com.example.votenow.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.votenow.R;
 
-public class CheckoutActivity extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checkout);
+        setContentView(R.layout.activity_product_details);
     }
 }

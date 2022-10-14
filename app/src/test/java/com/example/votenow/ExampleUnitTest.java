@@ -1,4 +1,4 @@
-package com.example.metamart;
+package com.example.votenow;
 
 import org.junit.Test;
 

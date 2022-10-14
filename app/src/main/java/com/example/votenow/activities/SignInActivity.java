@@ -1,4 +1,4 @@
-package com.example.metamart.activities;
+package com.example.votenow.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,7 +67,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
         if(loginInfo != null){
-            Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);
+            Intent intent = new Intent(SignInActivity.this , HomeActivity.class);
             startActivity(intent);
         }
 
@@ -109,8 +109,9 @@ public class SignInActivity extends AppCompatActivity {
 
                                     Toast.makeText(SignInActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
                                     pd.dismiss();
-                                    Intent intent = new Intent(SignInActivity.this , BottomNavigation.class);
+                                    Intent intent = new Intent(SignInActivity.this , HomeActivity.class);
                                     startActivity(intent);
+                                    finish();
 //                                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users").child(auth.getCurrentUser().getUid());
 //                                    reference.addValueEventListener(new ValueEventListener() {
 //                                        @Override
