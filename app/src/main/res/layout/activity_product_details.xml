@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Loading details..."
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/productImage"
         app:layout_constraintStart_toStartOf="@+id/productImage"
         app:layout_constraintTop_toBottomOf="@+id/productImage" />

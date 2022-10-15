@@ -69,6 +69,7 @@ public class SignInActivity extends AppCompatActivity {
         if(loginInfo != null){
             Intent intent = new Intent(SignInActivity.this , HomeActivity.class);
             startActivity(intent);
+            finish();
         }
 
 

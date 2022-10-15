@@ -24,6 +24,7 @@
             android:exported="false"/>
         <activity
             android:name="com.example.votenow.activities.ProductDetailsActivity"
+            android:parentActivityName=".activities.HomeActivity"
             android:exported="false"/>
         <activity
             android:name="com.example.votenow.activities.PaymentActivity"
@@ -36,6 +37,7 @@
             android:exported="false"/>
         <activity
             android:name="com.example.votenow.activities.CartActivity"
+            android:parentActivityName=".activities.HomeActivity"
             android:exported="false"/>
         <activity
             android:name="com.example.votenow.activities.ForgotPasswordActivity"

@@ -1,9 +1,12 @@
 package com.example.votenow.model;
 
 
-import java.io.Serializable;
+import com.hishd.tinycart.model.Item;
 
-public class Product implements Serializable {
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public class Product implements Item, Serializable {
 
     private String name, image, status;
     private double price, discount;
@@ -84,4 +87,13 @@ public class Product implements Serializable {
     }
 
 
+    @Override
+    public BigDecimal getItemPrice() {
+        return new BigDecimal(price);
+    }
+
+    @Override
+    public String getItemName() {
+        return name;
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.votenow.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.votenow.R;
+import com.example.votenow.activities.ProductDetailsActivity;
 import com.example.votenow.databinding.ItemProductBinding;
 import com.example.votenow.model.Product;
 
@@ -38,6 +40,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Glide.with(context).load(product.getImage()).into(holder.binding.image);
         holder.binding.label.setText(product.getName());
         holder.binding.price.setText("BDT "+ product.getPrice());
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+                intent.putExtra("name",product.getName());
+                intent.putExtra("image",product.getImage());
+                intent.putExtra("id",product.getId());
+                intent.putExtra("price",product.getPrice());
+                intent.putExtra("status",product.getStatus());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
