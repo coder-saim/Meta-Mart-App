@@ -78,7 +78,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/round_border"
-        android:padding="12dp"
+        android:padding="10dp"
         android:text="Continue"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
