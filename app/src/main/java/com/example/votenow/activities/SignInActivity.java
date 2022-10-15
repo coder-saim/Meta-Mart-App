@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.votenow.R;
@@ -24,7 +25,8 @@ import java.util.Objects;
 public class SignInActivity extends AppCompatActivity {
 
     private EditText txtEmail,txtPassword;
-    private Button loginButton,registerButton,forgotButton;
+    private Button loginButton;
+    private TextView forgotButton,registerButton;
 
 
     private SharedPreferences sharedPreferences;
@@ -43,9 +45,9 @@ public class SignInActivity extends AppCompatActivity {
 
         txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
-        loginButton = findViewById(R.id.loginButton);
-        registerButton = findViewById(R.id.registerButton);
         forgotButton = findViewById(R.id.forgotButton);
+        registerButton = findViewById(R.id.registerButton);
+        loginButton = findViewById(R.id.loginButton);
 
         auth = FirebaseAuth.getInstance();
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
@@ -146,20 +148,6 @@ public class SignInActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-
         forgotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,6 +155,16 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 
