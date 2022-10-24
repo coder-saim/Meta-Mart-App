@@ -49,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
 
         String query = getIntent().getStringExtra("query");
 
-        getSupportActionBar().setTitle(query);
+        getSupportActionBar().setTitle("Searching for "+ "\""+query+"\"");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getProducts(query);

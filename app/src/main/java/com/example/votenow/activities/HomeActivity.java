@@ -18,12 +18,15 @@ import com.example.votenow.adapters.ProductAdapter;
 import com.example.votenow.databinding.ActivityHomeBinding;
 import com.example.votenow.model.Category;
 import com.example.votenow.model.Product;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hishd.tinycart.model.Cart;
+import com.hishd.tinycart.util.TinyCartHelper;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
 
@@ -114,6 +117,14 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+        //Cart Badge added...
+        Cart cart = TinyCartHelper.getCart();
+        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+        badgeDrawable.setVisible(true);
+        badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+
+
+
 //////////////// ..................Bottom Navigation.............../////////////////////////////////////
 
 
@@ -136,6 +147,7 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+
 
 
     }

@@ -13,8 +13,10 @@ import android.view.View;
 import com.example.votenow.R;
 import com.example.votenow.adapters.CartAdapter;
 import com.example.votenow.model.Product;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.votenow.databinding.ActivityCartBinding;
+import com.google.android.material.navigation.NavigationBarView;
 import com.hishd.tinycart.model.Cart;
 import com.hishd.tinycart.model.Item;
 import com.hishd.tinycart.util.TinyCartHelper;
@@ -38,6 +40,7 @@ public class CartActivity extends AppCompatActivity {
         products = new ArrayList<>();
 
         Cart cart = TinyCartHelper.getCart();
+
 
         for(Map.Entry<Item, Integer> item : cart.getAllItemsWithQty().entrySet()) {
             Product product = (Product) item.getKey();

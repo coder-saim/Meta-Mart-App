@@ -4,21 +4,31 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.votenow.R;
 import com.example.votenow.databinding.ActivityProfileBinding;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.hishd.tinycart.model.Cart;
+import com.hishd.tinycart.util.TinyCartHelper;
 
 import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity {
 
     ActivityProfileBinding binding;
+    FirebaseUser user;
 
     private Button signOut;
 
@@ -38,6 +48,21 @@ public class ProfileActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Name, email address
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+
+            Log.i("Saim",name+"  "+email);
+            TextView pname = findViewById(R.id.pname);
+            TextView pemail = findViewById(R.id.pemail);
+            pname.setText("Md Saim Ahmmed");
+            pemail.setText(email);
+        }
+
+
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +73,15 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        //Cart Badge added...
+        Cart cart = TinyCartHelper.getCart();
+        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+        badgeDrawable.setVisible(true);
+        badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+
+
 
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
