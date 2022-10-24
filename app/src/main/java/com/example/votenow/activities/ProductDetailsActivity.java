@@ -40,6 +40,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         double price = getIntent().getDoubleExtra("price",0);
         double discount = getIntent().getDoubleExtra("discount",0);
         String status = getIntent().getStringExtra("status");
+        String category = getIntent().getStringExtra("category");
 
         getSupportActionBar().setTitle(name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +50,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         Glide.with(this).load(image).into(binding.productImage);
 
-        currentProduct = new Product(name,image,status,price,discount,stock,id);
+        currentProduct = new Product(name,image,status,category,price,discount,stock,id);
 
 
         Cart cart = TinyCartHelper.getCart();
