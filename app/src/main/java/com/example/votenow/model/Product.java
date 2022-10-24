@@ -13,6 +13,10 @@ public class Product implements Item, Serializable {
     private int stock, id;
     private int quantity;
 
+    public Product(){
+
+    }
+
     public Product(String name, String image, String status, double price, double discount, int stock, int id) {
         this.name = name;
         this.image = image;
