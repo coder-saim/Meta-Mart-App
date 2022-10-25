@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:ems="10"
-                    android:hint="Date Shipping"
+                    android:hint="Date of Shipping"
                     android:inputType="textPersonName"
                     android:padding="15dp" />
 
