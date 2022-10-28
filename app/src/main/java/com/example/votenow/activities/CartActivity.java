@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.votenow.R;
 import com.example.votenow.adapters.CartAdapter;
@@ -72,7 +73,13 @@ public class CartActivity extends AppCompatActivity {
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
+                if(cart.getAllItemsWithQty().entrySet().size() !=0 )
+                    startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
+                else {
+                    binding.continueBtn.setText("Opps! Empty Cart");
+                    binding.continueBtn.setEnabled(false);
+                    Toast.makeText(CartActivity.this, "Please, add Product to continue!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

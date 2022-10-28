@@ -47,28 +47,44 @@
 
 
     <Button
+        android:id="@+id/orderedProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_bg"
+        android:padding="10dp"
+        android:text="Ordered Product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pemail" />
+
+    <Button
         android:id="@+id/signOut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/round_bg"
         android:padding="10dp"
         android:text="Sign Out"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/pname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="Your Name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wave" />
 
@@ -76,10 +92,74 @@
         android:id="@+id/pemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="Your Email"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pname" />
+
+    <ImageView
+        android:id="@+id/aboutBtn"
+        android:layout_width="55dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toStartOf="@+id/contactBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderedProduct"
+        app:layout_constraintVertical_bias="0.442"
+        app:srcCompat="@drawable/about" />
+
+    <ImageView
+        android:id="@+id/contactBtn"
+        android:layout_width="63dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
+        app:layout_constraintTop_toBottomOf="@+id/orderedProduct"
+        app:layout_constraintVertical_bias="0.419"
+        app:srcCompat="@drawable/contact" />
+
+    <ImageView
+        android:id="@+id/shareBtn"
+        android:layout_width="56dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderedProduct"
+        app:layout_constraintVertical_bias="0.438"
+        app:srcCompat="@drawable/sharing" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        app:layout_constraintEnd_toEndOf="@+id/aboutBtn"
+        app:layout_constraintStart_toStartOf="@+id/aboutBtn"
+        app:layout_constraintTop_toBottomOf="@+id/aboutBtn" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Us"
+        app:layout_constraintEnd_toEndOf="@+id/contactBtn"
+        app:layout_constraintStart_toStartOf="@+id/contactBtn"
+        app:layout_constraintTop_toBottomOf="@+id/contactBtn" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        app:layout_constraintEnd_toEndOf="@+id/shareBtn"
+        app:layout_constraintStart_toStartOf="@+id/shareBtn"
+        app:layout_constraintTop_toBottomOf="@+id/shareBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,10 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.ProgressDialog;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.votenow.R;
 import com.example.votenow.adapters.CartAdapter;
 import com.example.votenow.databinding.ActivityCheckoutBinding;
 import com.example.votenow.model.Product;
@@ -39,6 +43,8 @@ public class CheckoutActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Processing...");
+
+
 
         products = new ArrayList<>();
 
@@ -76,7 +82,10 @@ public class CheckoutActivity extends AppCompatActivity {
         binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                processOrder();
+                if(binding.nameBox.getText().toString().isEmpty() || binding.phoneBox.getText().toString().isEmpty() || binding.addressBox.getText().toString().isEmpty()){
+                    Toast.makeText(CheckoutActivity.this, "Empty Credentials!!!", Toast.LENGTH_SHORT).show();
+                }
+                else processOrder();
             }
         });
 
