@@ -7,7 +7,6 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher_round"
@@ -15,37 +14,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VoteNow"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.example.votenow.activities.ProfileActivity"
+            android:name="com.example.votenow.activities.OrderedProduct"
             android:exported="false"/>
+        <activity
+            android:name="com.example.votenow.activities.ProfileActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.SearchActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.ProductDetailsActivity"
-            android:parentActivityName=".activities.HomeActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".activities.HomeActivity" />
         <activity
             android:name="com.example.votenow.activities.PaymentActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.CheckoutActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.CategoryActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.CartActivity"
-            android:parentActivityName=".activities.HomeActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".activities.HomeActivity" />
         <activity
             android:name="com.example.votenow.activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.HomeActivity"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name="com.example.votenow.activities.SignUpActivity"
             android:exported="false" />
