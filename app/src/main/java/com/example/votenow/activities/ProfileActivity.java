@@ -109,6 +109,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        binding.orderedProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this,OrderedProduct.class));
+            }
+        });
+
 
         //Cart Badge added...
         Cart cart = TinyCartHelper.getCart();

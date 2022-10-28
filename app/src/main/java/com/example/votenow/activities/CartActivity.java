@@ -76,7 +76,7 @@ public class CartActivity extends AppCompatActivity {
                 if(cart.getAllItemsWithQty().entrySet().size() !=0 )
                     startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
                 else {
-                    binding.continueBtn.setText("Opps! Empty Cart");
+                    binding.continueBtn.setText("Oops! Empty Cart");
                     binding.continueBtn.setEnabled(false);
                     Toast.makeText(CartActivity.this, "Please, add Product to continue!", Toast.LENGTH_SHORT).show();
                 }
@@ -90,7 +90,7 @@ public class CartActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.cart);
 
 
-        ///Clear porduct form cart....
+        ///Delete porduct form cart....
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
             @Override
@@ -108,6 +108,7 @@ public class CartActivity extends AppCompatActivity {
                 cart.removeItem(deleteProduct);
 
                 binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
+                Toast.makeText(CartActivity.this, "Product Deleted", Toast.LENGTH_SHORT).show();
 
                 if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
                     BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);

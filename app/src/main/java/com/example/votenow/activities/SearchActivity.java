@@ -90,7 +90,7 @@ public class SearchActivity extends AppCompatActivity {
                         products.add(product);
                 }
                 if(products.size() == 0)
-                    Toast.makeText(SearchActivity.this, "Opps! No Product found...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SearchActivity.this, "Oops! No Product found...", Toast.LENGTH_SHORT).show();
                 else Toast.makeText(SearchActivity.this, products.size()+" Similar Product found", Toast.LENGTH_SHORT).show();
 
                 productAdapter.notifyDataSetChanged();

@@ -83,7 +83,7 @@ public class CheckoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(binding.nameBox.getText().toString().isEmpty() || binding.phoneBox.getText().toString().isEmpty() || binding.addressBox.getText().toString().isEmpty()){
-                    Toast.makeText(CheckoutActivity.this, "Empty Credentials!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckoutActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
                 }
                 else processOrder();
             }

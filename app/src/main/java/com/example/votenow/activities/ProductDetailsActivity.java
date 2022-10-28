@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.votenow.R;
@@ -64,6 +65,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 cart.addItem(currentProduct,1);
                 binding.addToCartBtn.setEnabled(false);
                 binding.addToCartBtn.setText("Product added in cart");
+                Toast.makeText(ProductDetailsActivity.this, "Product added", Toast.LENGTH_SHORT).show();
             }
         });
 
