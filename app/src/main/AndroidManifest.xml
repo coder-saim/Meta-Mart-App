@@ -44,6 +44,7 @@
             android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.HomeActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:exported="false" />
         <activity
             android:name="com.example.votenow.activities.SignUpActivity"

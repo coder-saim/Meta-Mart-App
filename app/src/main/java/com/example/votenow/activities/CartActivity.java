@@ -3,7 +3,9 @@ package com.example.votenow.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -63,6 +65,8 @@ public class CartActivity extends AppCompatActivity {
         binding.cartList.addItemDecoration(itemDecoration);
         binding.cartList.setAdapter(adapter);
 
+
+
         binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
 
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +80,35 @@ public class CartActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Shopping Cart");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
-
-
         bottomNavigationView.setSelectedItemId(R.id.cart);
+
+
+        ///Clear porduct form cart....
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Product deleteProduct=products.get(viewHolder.getAdapterPosition());
+                int position = viewHolder.getAdapterPosition();
+                products.remove(viewHolder.getAdapterPosition());
+                adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+
+                cart.removeItem(deleteProduct);
+
+                binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
+
+                if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
+                    BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+                    badgeDrawable.setVisible(true);
+                    badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+                }
+            }
+        }).attachToRecyclerView(binding.cartList);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -99,6 +128,15 @@ public class CartActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+
+        if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
+            BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+            badgeDrawable.setVisible(true);
+            badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+        }
+
     }
 
     @Override

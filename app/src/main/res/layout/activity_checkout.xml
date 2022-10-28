@@ -174,15 +174,6 @@
                     android:inputType="textPersonName"
                     android:padding="15dp" />
 
-                <EditText
-                    android:id="@+id/emailBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Email Address"
-                    android:inputType="textPersonName"
-                    android:padding="15dp" />
 
                 <EditText
                     android:id="@+id/phoneBox"
@@ -204,25 +195,6 @@
                     android:inputType="textPersonName"
                     android:padding="15dp" />
 
-                <EditText
-                    android:id="@+id/dateBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Date of Shipping"
-                    android:inputType="textPersonName"
-                    android:padding="15dp" />
-
-                <EditText
-                    android:id="@+id/commentBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:ems="10"
-                    android:hint="Additional Comments"
-                    android:inputType="textPersonName"
-                    android:padding="15dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

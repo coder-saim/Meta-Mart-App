@@ -70,7 +70,7 @@ public class CheckoutActivity extends AppCompatActivity {
         totalPrice = (cart.getTotalPrice().doubleValue() * tax / 100) + cart.getTotalPrice().doubleValue();
         binding.total.setText("BDT " + totalPrice);
 
-        String taxText = "" + tax;
+        String taxText = tax + "%";
         binding.tax.setText(taxText);
 
         binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,12 +92,12 @@ public class CheckoutActivity extends AppCompatActivity {
         new AlertDialog.Builder(CheckoutActivity.this)
                 .setTitle("Order Successful")
                 .setCancelable(false)
-                .setMessage("Your order number is: " + "*******")
+                .setMessage("Your order number is: " + "7398767")
                 .setPositiveButton("Pay Now", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(CheckoutActivity.this, PaymentActivity.class);
-                        intent.putExtra("orderCode", "*******");
+                        intent.putExtra("orderCode", "7398767");
                         startActivity(intent);
                     }
                 }).show();}

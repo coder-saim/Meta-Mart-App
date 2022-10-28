@@ -33,6 +33,8 @@ import com.mancj.materialsearchbar.MaterialSearchBar;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity {
@@ -62,9 +64,6 @@ public class HomeActivity extends AppCompatActivity {
         initCategorise();
         //initProducts();
         initSlider();
-
-
-
 
         //Firebase for fetching data....
         productList = findViewById(R.id.productList);
@@ -119,9 +118,25 @@ public class HomeActivity extends AppCompatActivity {
 
         //Cart Badge added...
         Cart cart = TinyCartHelper.getCart();
-        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
-        badgeDrawable.setVisible(true);
-        badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+        if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
+            BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+            badgeDrawable.setVisible(true);
+            badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+        }
+
+        //Clearing Cart
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("check");
+            //The key argument here must match that used in the other activity
+            if(value.equals("placed")){
+                cart.clearCart();
+                BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+                badgeDrawable.setVisible(false);
+                badgeDrawable.setNumber(0);
+            }
+
+        }
 
 
 
@@ -167,7 +182,7 @@ public class HomeActivity extends AppCompatActivity {
         categories.add(new Category("Women's Clothing","https://cdn-icons-png.flaticon.com/128/3893/3893209.png","#d8d8d8","Some text",1));
         categories.add(new Category("Cosmetics","https://cdn-icons-png.flaticon.com/128/1005/1005769.png","#d8d8d8","Some text",1));
         categories.add(new Category("Home and Living","https://cdn-icons-png.flaticon.com/128/1084/1084008.png","#d8d8d8","Some text",1));
-        categories.add(new Category("Medicines","https://cdn-icons-png.flaticon.com/128/655/655968.png","#d8d8d8","Some text",1));
+        categories.add(new Category("Jewellery","https://cdn-icons-png.flaticon.com/512/3109/3109867.png","#d8d8d8","Some text",1));
         categoryAdapter = new CategoryAdapter(this, categories);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,4);

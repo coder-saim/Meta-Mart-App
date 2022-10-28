@@ -6,4 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".activities.PaymentActivity">
 
+    <TextView
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="221dp"
+        android:text="Your Order Number is:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/COD"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_border"
+        android:padding="10dp"
+        android:text="Cash on Delivery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bkash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_border"
+        android:padding="10dp"
+        android:text="Bkash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nagad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_border"
+        android:padding="10dp"
+        android:text="Nagad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rocket"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="244dp"
+        android:background="@drawable/round_border"
+        android:padding="10dp"
+        android:text="Rocket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nagad"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="82dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        app:srcCompat="@drawable/cashlesspayment" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="93dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515"
+        app:srcCompat="@drawable/payment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

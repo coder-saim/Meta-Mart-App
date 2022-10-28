@@ -41,12 +41,13 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         signOut = findViewById(R.id.signOut);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -77,14 +78,18 @@ public class ProfileActivity extends AppCompatActivity {
 
         //Cart Badge added...
         Cart cart = TinyCartHelper.getCart();
-        BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
-        badgeDrawable.setVisible(true);
-        badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+        if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
+            BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
+            badgeDrawable.setVisible(true);
+            badgeDrawable.setNumber(cart.getAllItemsWithQty().entrySet().size());
+        }
+
+        //Side navigation...
 
 
 
+        //Bottom Navigation
         bottomNavigationView.setSelectedItemId(R.id.profile);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -108,5 +113,10 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
     }
 }
