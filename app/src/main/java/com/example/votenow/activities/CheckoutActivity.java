@@ -149,6 +149,7 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     int i=0;
+    int val = (int)(Math.random()*(1000000-100000)+10000000);
 
     void processOrder() {
 //        progressDialog.show();
@@ -156,12 +157,13 @@ public class CheckoutActivity extends AppCompatActivity {
         new AlertDialog.Builder(CheckoutActivity.this)
                 .setTitle("Order Successful")
                 .setCancelable(false)
-                .setMessage("Your order number is: " + "7398767")
+                .setMessage("Your order number is: " + val)
                 .setPositiveButton("Pay Now", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(CheckoutActivity.this, PaymentActivity.class);
-                        intent.putExtra("orderCode", "7398767");
+                        intent.putExtra("orderCode", ""+val);
+                        intent.putExtra("total",totalPrice);
                         startActivity(intent);
                     }
                 }).show();}

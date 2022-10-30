@@ -85,7 +85,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .setTitle("Cash on Delivery")
                 .setCancelable(false)
                 .setMessage("Your products will be shipped within 24 hours. " +
-                        "You can pay BDT " + total + "to the courier when you recieve the products at your doorstep")
+                        "You can pay BDT " + total + " to the courier when you recieve the products at your doorstep.")
                 .setPositiveButton("Confirm Order", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
