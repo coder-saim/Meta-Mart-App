@@ -46,6 +46,8 @@ public class EditProfile extends AppCompatActivity {
         dbroot = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        //Data updating to firestore....
+
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

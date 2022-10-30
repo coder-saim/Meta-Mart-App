@@ -138,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
             if(value.equals("placed")){
                 Intent intent = new Intent(HomeActivity.this,OrderedProduct.class);
                 startActivity(intent);
-                //cart.clearCart();
+                cart.clearCart();
                 BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.cart);
                 badgeDrawable.setVisible(false);
             }

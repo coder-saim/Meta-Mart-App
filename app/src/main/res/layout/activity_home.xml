@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:mt_hint="Search your favorite product"
-            app:mt_placeholder="Meta Mart"
-            app:mt_navIconEnabled="true"
             app:mt_maxSuggestionsCount="10"
+            app:mt_navIconEnabled="true"
+            app:mt_placeholder="Meta Mart"
             app:mt_speechMode="true" />
     </LinearLayout>
 

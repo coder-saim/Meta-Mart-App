@@ -10,6 +10,7 @@ import android.os.Bundle;
  import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import com.hishd.tinycart.model.Cart;
 import com.hishd.tinycart.model.Item;
 import com.hishd.tinycart.util.TinyCartHelper;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutActivity extends AppCompatActivity {
@@ -56,6 +58,10 @@ public class CheckoutActivity extends AppCompatActivity {
         products = new ArrayList<>();
 
         cart = TinyCartHelper.getCart();
+        String str = "";
+        int i=1;
+        FirebaseFirestore dbroot = FirebaseFirestore.getInstance();
+
 
         for(Map.Entry<Item, Integer> item : cart.getAllItemsWithQty().entrySet()) {
             Product product = (Product) item.getKey();
@@ -63,6 +69,21 @@ public class CheckoutActivity extends AppCompatActivity {
             product.setQuantity(quantity);
 
             products.add(product);
+
+            str+=i+". "+product.getName()+'\n';
+            Log.i("saim",str);
+            i++;
+
+            HashMap hashMap = new HashMap();
+            hashMap.put("Products",str);
+
+
+            dbroot.collection("metamart").document("orderedProduct")
+                    .set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                        }
+                    });
         }
 
         adapter = new CartAdapter(this, products, new CartAdapter.CartListener() {
@@ -86,34 +107,38 @@ public class CheckoutActivity extends AppCompatActivity {
         String taxText = tax + "%";
         binding.tax.setText(taxText);
 
+       //Data fetching from firestore....
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String email = user.getEmail();
+            dbroot.collection("metamart").document(email)
+                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if(documentSnapshot.exists()){
+                                String name = documentSnapshot.getString("Name");
+                                String phone = documentSnapshot.getString("Phone");
+                                String address = documentSnapshot.getString("Address");
+
+                                binding.nameBox.setText(name);
+                                binding.phoneBox.setText(phone);
+                                binding.addressBox.setText(address);
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(CheckoutActivity.this, "No Such Data!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+
         binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String email = user.getEmail();
-                FirebaseFirestore dbroot = FirebaseFirestore.getInstance();
-                dbroot.collection("metamart").document(email)
-                        .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                            @Override
-                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                if(documentSnapshot.exists()){
-                                    String name = documentSnapshot.getString("Name");
-                                    String phone = documentSnapshot.getString("Phone");
-                                    String address = documentSnapshot.getString("Address");
-
-                                    binding.nameBox.setText(name);
-                                    binding.phoneBox.setText(phone);
-                                    binding.addressBox.setText(address);
-                                }
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(CheckoutActivity.this, "No Such Data!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
                 if(binding.nameBox.getText().toString().isEmpty() || binding.phoneBox.getText().toString().isEmpty() || binding.addressBox.getText().toString().isEmpty()){
-                    Toast.makeText(CheckoutActivity.this, "Form Filled Up!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckoutActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
                 }
                 else processOrder();
             }
