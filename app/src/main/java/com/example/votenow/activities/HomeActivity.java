@@ -20,6 +20,7 @@ import com.example.votenow.adapters.ProductAdapter;
 import com.example.votenow.databinding.ActivityHomeBinding;
 import com.example.votenow.model.Category;
 import com.example.votenow.model.Product;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hishd.tinycart.model.Cart;
 import com.hishd.tinycart.util.TinyCartHelper;
 import com.mancj.materialsearchbar.MaterialSearchBar;
@@ -188,17 +191,29 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void initSlider() {
-        binding.carousel.addData(new CarouselItem("https://idestiny.in/wp-content/uploads/2021/04/2-4.png"));
-        binding.carousel.addData(new CarouselItem("https://priyoshopbackup.blob.core.windows.net/priyoshop/content/Images/Thumbs/0242520.jpeg"));
-        binding.carousel.addData(new CarouselItem("https://img.freepik.com/premium-vector/halloween-special-offer-banner-flat-style_483832-228.jpg?w=2000"));
-        binding.carousel.addData(new CarouselItem("https://img.freepik.com/premium-vector/sale-banner-up-70-percent-mega-discount-only-this-weekend-social-media-poster-website-header-banner-with-special-super-offer-wholesale-limited-time-event-vector-illustration_419341-245.jpg?w=2000"));
-        binding.carousel.addData(new CarouselItem("https://www.offershopbd.com/public/60aa1a9fa6879.jpg"));
-        binding.carousel.addData(new CarouselItem("https://image.shutterstock.com/image-vector/vector-88-shopping-day-poster-260nw-2012882648.jpg"));
-        binding.carousel.addData(new CarouselItem("https://image.shutterstock.com/image-vector/vector-1010-shopping-day-poster-260nw-2034439334.jpg"));
-        binding.carousel.addData(new CarouselItem("https://priyoshopbackup.blob.core.windows.net/priyoshop/content/Images/Thumbs/0242520.jpeg"));
-        binding.carousel.addData(new CarouselItem("https://c8.alamy.com/comp/WB7EJA/discount-50-off-sale-special-offer-banner-vector-image-discount-sale-banner-business-shop-logo-banner-vector-WB7EJA.jpg"));
-        binding.carousel.addData(new CarouselItem("https://www.templaza.com/images/easyblog_articles/563/templaza-black-friday-cyber-monday-sale-2019-2.png"));
 
+        FirebaseFirestore dbroot = FirebaseFirestore.getInstance();
+        dbroot.collection("metamart").document("sliderImage")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()){
+                            String img = documentSnapshot.getString("Products");
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("a")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("b")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("c")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("d")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("e")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("f")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("g")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("h")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("i")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("g")));
+
+
+                        }
+                    }
+                });
 
     }
 
