@@ -85,7 +85,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .setTitle("Cash on Delivery")
                 .setCancelable(false)
                 .setMessage("Your products will be shipped within 24 hours. " +
-                        "You can pay BDT " + total + " to the courier when you recieve the products at your doorstep.")
+                        "You can pay BDT " + total + "৳ to the courier when you recieve the products at your doorstep.")
                 .setPositiveButton("Confirm Order", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -106,7 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Bkash")
                 .setCancelable(false)
-                .setMessage("Place your payment of BDT " + total + " through Bkash to 01805678146 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
+                .setMessage("Place your payment of BDT " + total + "৳ through Bkash to 01805678146 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
                         "If you do not pay within 2 hours, your order will be cancelled.")
                 .setPositiveButton("Confirm Order", new DialogInterface.OnClickListener() {
                     @Override
@@ -128,7 +128,7 @@ public class PaymentActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Nagad")
                 .setCancelable(false)
-                .setMessage("Place your payment of BDT " + total + " through Nagad to 01804879621 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
+                .setMessage("Place your payment of BDT " + total + "৳ through Nagad to 01804879621 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
                         "If you do not pay within 2 hours, your order will be cancelled.")
                 .setPositiveButton("Confirm Order", new DialogInterface.OnClickListener() {
                     @Override
@@ -150,7 +150,7 @@ public class PaymentActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle("Rocket")
                 .setCancelable(false)
-                .setMessage("Place your payment of BDT " + total + " through Rocket to 01905678146 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
+                .setMessage("Place your payment of BDT " + total + "৳ through Rocket to 01905678146 within 2 hours with this Order no. Your products will then be shipped within 24 hours. " +
                         "If you do not pay within 2 hours, your order will be cancelled.")
                 .setPositiveButton("Confirm Order", new DialogInterface.OnClickListener() {
                     @Override

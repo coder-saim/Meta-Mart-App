@@ -56,7 +56,7 @@ public class CartActivity extends AppCompatActivity {
         adapter = new CartAdapter(this, products, new CartAdapter.CartListener() {
             @Override
             public void onQuantityChanged() {
-                binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
+                binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice())+"৳");
             }
         });
 
@@ -68,7 +68,7 @@ public class CartActivity extends AppCompatActivity {
 
 
 
-        binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
+        binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice())+"৳");
 
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +107,7 @@ public class CartActivity extends AppCompatActivity {
 
                 cart.removeItem(deleteProduct);
 
-                binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice()));
+                binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice())+"৳");
                 Toast.makeText(CartActivity.this, "Product Deleted", Toast.LENGTH_SHORT).show();
 
                 if(cart.getAllItemsWithQty().entrySet().size() !=0 ) {
