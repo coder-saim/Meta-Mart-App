@@ -43,8 +43,8 @@ public class SignInActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        txtEmail = findViewById(R.id.txtEmail);
-        txtPassword = findViewById(R.id.txtPassword);
+        txtEmail = findViewById(R.id.txtAddressEdit);
+        txtPassword = findViewById(R.id.txtPhoneEdit);
         forgotButton = findViewById(R.id.forgotButton);
         registerButton = findViewById(R.id.registerButton);
         loginButton = findViewById(R.id.loginButton);

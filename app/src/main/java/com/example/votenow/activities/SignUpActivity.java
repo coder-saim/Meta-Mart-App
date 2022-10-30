@@ -3,7 +3,6 @@ package com.example.votenow.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -35,9 +34,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        txtEmail = findViewById(R.id.txtEmail);
-        txtPassword = findViewById(R.id.txtPassword);
-        singUpButton = findViewById(R.id.signUpButton);
+        txtEmail = findViewById(R.id.txtAddressEdit);
+        txtPassword = findViewById(R.id.txtPhoneEdit);
+        singUpButton = findViewById(R.id.updateButton);
 
         auth = FirebaseAuth.getInstance();
 

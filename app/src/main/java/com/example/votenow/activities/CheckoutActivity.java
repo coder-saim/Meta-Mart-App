@@ -1,5 +1,6 @@
 package com.example.votenow.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -17,6 +18,12 @@ import com.example.votenow.R;
 import com.example.votenow.adapters.CartAdapter;
 import com.example.votenow.databinding.ActivityCheckoutBinding;
 import com.example.votenow.model.Product;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hishd.tinycart.model.Cart;
 import com.hishd.tinycart.model.Item;
 import com.hishd.tinycart.util.TinyCartHelper;
@@ -82,8 +89,31 @@ public class CheckoutActivity extends AppCompatActivity {
         binding.checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String email = user.getEmail();
+                FirebaseFirestore dbroot = FirebaseFirestore.getInstance();
+                dbroot.collection("metamart").document(email)
+                        .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                if(documentSnapshot.exists()){
+                                    String name = documentSnapshot.getString("Name");
+                                    String phone = documentSnapshot.getString("Phone");
+                                    String address = documentSnapshot.getString("Address");
+
+                                    binding.nameBox.setText(name);
+                                    binding.phoneBox.setText(phone);
+                                    binding.addressBox.setText(address);
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(CheckoutActivity.this, "No Such Data!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 if(binding.nameBox.getText().toString().isEmpty() || binding.phoneBox.getText().toString().isEmpty() || binding.addressBox.getText().toString().isEmpty()){
-                    Toast.makeText(CheckoutActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CheckoutActivity.this, "Form Filled Up!", Toast.LENGTH_SHORT).show();
                 }
                 else processOrder();
             }

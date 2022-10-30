@@ -20,10 +20,14 @@ import android.widget.Toast;
 
 import com.example.votenow.R;
 import com.example.votenow.databinding.ActivityProfileBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hishd.tinycart.model.Cart;
 import com.hishd.tinycart.util.TinyCartHelper;
 
@@ -32,9 +36,11 @@ public class ProfileActivity extends AppCompatActivity {
 
     ActivityProfileBinding binding;
     FirebaseUser user;
+    FirebaseFirestore dbroot;
     ImageView aboutBtn,contactBtn,shareBtn;
     private Button signOut;
     Context context;
+    TextView edittProfile;
 
 
     @SuppressLint("MissingInflatedId")
@@ -51,22 +57,51 @@ public class ProfileActivity extends AppCompatActivity {
         aboutBtn = findViewById(R.id.aboutBtn);
         shareBtn = findViewById(R.id.shareBtn);
         signOut = findViewById(R.id.signOut);
+        edittProfile = findViewById(R.id.editProfile);
+        TextView pname = findViewById(R.id.pname);
+        TextView pemail = findViewById(R.id.pemail);
+        TextView pPhone = findViewById(R.id.pPhone);
+        TextView paddress = findViewById(R.id.paddress);
+
+        dbroot = FirebaseFirestore.getInstance();
+
         getSupportActionBar().setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            // Name, email address
-            String name = user.getDisplayName();
             String email = user.getEmail();
+            dbroot.collection("metamart").document(email)
+                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if(documentSnapshot.exists()){
+                                String name = documentSnapshot.getString("Name");
+                                String phone = documentSnapshot.getString("Phone");
+                                String address = documentSnapshot.getString("Address");
 
-            Log.i("Saim",name+"  "+email);
-            TextView pname = findViewById(R.id.pname);
-            TextView pemail = findViewById(R.id.pemail);
-            pname.setText("Md Saim Ahmmed");
-            pemail.setText(email);
+                                pname.setText(name);
+                                pemail.setText(email);
+                                pPhone.setText(phone);
+                                paddress.setText(address);
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ProfileActivity.this, "No Such Data!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
+
+        edittProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this,EditProfile.class);
+                startActivity(intent);
+            }
+        });
 
 
         signOut.setOnClickListener(new View.OnClickListener() {

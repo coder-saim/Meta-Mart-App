@@ -62,6 +62,9 @@ public class OrderedProduct extends AppCompatActivity {
         binding.cartList.setLayoutManager(layoutManager);
         binding.cartList.addItemDecoration(itemDecoration);
         binding.cartList.setAdapter(adapter);
+
+        cart.clearCart();
+
     }
 
     public boolean onSupportNavigateUp() {

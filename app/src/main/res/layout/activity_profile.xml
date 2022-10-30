@@ -27,13 +27,17 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="133dp"
-        android:layout_height="96dp"
+        android:id="@+id/imageEdit"
+        android:layout_width="176dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toBottomOf="@+id/wave"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/man" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -51,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round_bg"
         android:padding="10dp"
@@ -59,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pemail" />
+        app:layout_constraintTop_toBottomOf="@+id/paddress" />
 
     <Button
         android:id="@+id/signOut"
@@ -67,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/round_bg"
         android:padding="10dp"
         android:text="Sign Out"
@@ -80,13 +84,13 @@
         android:id="@+id/pname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="80dp"
         android:text="Your Name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wave" />
+        app:layout_constraintTop_toBottomOf="@+id/topView" />
 
     <TextView
         android:id="@+id/pemail"
@@ -161,5 +165,40 @@
         app:layout_constraintEnd_toEndOf="@+id/shareBtn"
         app:layout_constraintStart_toStartOf="@+id/shareBtn"
         app:layout_constraintTop_toBottomOf="@+id/shareBtn" />
+
+    <TextView
+        android:id="@+id/editProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Edit Profile"
+        android:textColor="#EDE5E5"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageEdit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your Phone Number"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pemail" />
+
+    <TextView
+        android:id="@+id/paddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Your Address"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
