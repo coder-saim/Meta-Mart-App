@@ -49,7 +49,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescription = findViewById(R.id.productDescription);
         productDescription.setText(status);
 
-        binding.productPrice.setText("Price: BDT " + price +"৳");
+        binding.productPrice.setText("Price: ৳ " + price);
 
         Glide.with(this).load(image).into(binding.productImage);
 

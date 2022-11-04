@@ -99,10 +99,10 @@ public class CheckoutActivity extends AppCompatActivity {
         binding.cartList.addItemDecoration(itemDecoration);
         binding.cartList.setAdapter(adapter);
 
-        binding.subtotal.setText(String.format("BDT %.2f",cart.getTotalPrice())+"৳");
+        binding.subtotal.setText(String.format("৳ %.2f",cart.getTotalPrice()));
 
         totalPrice = (cart.getTotalPrice().doubleValue() * tax / 100) + cart.getTotalPrice().doubleValue();
-        binding.total.setText("BDT " + totalPrice+"৳");
+        binding.total.setText("৳ " + totalPrice);
 
         String taxText = tax + "%";
         binding.tax.setText(taxText);
