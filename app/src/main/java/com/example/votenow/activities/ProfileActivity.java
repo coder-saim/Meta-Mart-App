@@ -71,8 +71,9 @@ public class ProfileActivity extends AppCompatActivity {
         //Data fetching from firestore....
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
         if (user != null) {
-            String email = user.getEmail();
+
             dbroot.collection("metamart").document(email)
                     .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
@@ -129,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT,"Check Out this Cool Application");
-                intent.putExtra(Intent.EXTRA_TEXT,"saim.cse.du.744@gmail.com");
+                intent.putExtra(Intent.EXTRA_TEXT,email);
                 startActivity(Intent.createChooser(intent,"Contact Via"));
             }
         });

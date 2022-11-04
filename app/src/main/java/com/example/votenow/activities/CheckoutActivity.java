@@ -53,7 +53,7 @@ public class CheckoutActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Processing...");
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         products = new ArrayList<>();
 
@@ -77,8 +77,8 @@ public class CheckoutActivity extends AppCompatActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("Products",str);
 
-
-            dbroot.collection("metamart").document("orderedProduct")
+            String email = user.getEmail();
+            dbroot.collection("metamart").document(email+"orderedProduct")
                     .set(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -109,7 +109,6 @@ public class CheckoutActivity extends AppCompatActivity {
 
        //Data fetching from firestore....
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String email = user.getEmail();
             dbroot.collection("metamart").document(email)

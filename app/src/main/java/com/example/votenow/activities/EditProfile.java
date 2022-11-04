@@ -35,7 +35,7 @@ public class EditProfile extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Ordered Products");
+        getSupportActionBar().setTitle("Update Profile");
 
         txtNameEdit = findViewById(R.id.txtNameEdit);
         txtAddressEdit = findViewById(R.id.txtAddressEdit);

@@ -17,6 +17,8 @@ import com.example.votenow.databinding.ActivityOrderedProductBinding;
 import com.example.votenow.model.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.hishd.tinycart.model.Cart;
@@ -50,8 +52,9 @@ public class OrderedProduct extends AppCompatActivity {
         int i=1;
         String str = "";
 
-
-        dbroot.collection("metamart").document("orderedProduct")
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+        dbroot.collection("metamart").document(email+"orderedProduct")
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -60,6 +63,7 @@ public class OrderedProduct extends AppCompatActivity {
                             binding.productOrder.setText(str_product);
 
                         }
+                        else binding.productOrder.setText("Did not order any product yet!");
                     }
                 });
 

@@ -121,7 +121,7 @@
         android:id="@+id/contactBtn"
         android:layout_width="63dp"
         android:layout_height="47dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toStartOf="@+id/shareBtn"
         app:layout_constraintTop_toBottomOf="@+id/orderedProduct"
