@@ -208,7 +208,7 @@ public class HomeActivity extends AppCompatActivity {
                             binding.carousel.addData(new CarouselItem(documentSnapshot.getString("g")));
                             binding.carousel.addData(new CarouselItem(documentSnapshot.getString("h")));
                             binding.carousel.addData(new CarouselItem(documentSnapshot.getString("i")));
-                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("g")));
+                            binding.carousel.addData(new CarouselItem(documentSnapshot.getString("j")));
 
 
                         }

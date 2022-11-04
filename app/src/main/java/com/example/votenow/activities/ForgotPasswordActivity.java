@@ -3,11 +3,13 @@ package com.example.votenow.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.votenow.R;
@@ -39,27 +41,33 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validateData();
+                final ProgressDialog pd = new ProgressDialog(ForgotPasswordActivity.this);
+                pd.setMessage("Please wait...");
+                pd.show();
+                validateData(pd);
             }
         });
 
     }
 
-    private void validateData() {
+    private void validateData(ProgressDialog pd) {
         email = txtEmail.getText().toString();
         if(email.isEmpty()){
+            pd.dismiss();
             txtEmail.setText("Email Required");
+            Toast.makeText(this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
         }
         else{
-            resetPassword();
+            resetPassword(pd);
         }
     }
 
-    private void resetPassword() {
+    private void resetPassword(ProgressDialog pd) {
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
+                    pd.dismiss();
                     Toast.makeText(ForgotPasswordActivity.this, "Check Your Email", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ForgotPasswordActivity.this,SignInActivity.class);
                     startActivity(intent);
@@ -67,6 +75,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 }
 
                 else{
+                    pd.dismiss();
                     Toast.makeText(ForgotPasswordActivity.this, "Some went wrong!!", Toast.LENGTH_SHORT).show();
                 }
             }
