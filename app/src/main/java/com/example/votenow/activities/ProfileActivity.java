@@ -130,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT,"Check Out this Cool Application");
-                intent.putExtra(Intent.EXTRA_TEXT,email);
+                intent.putExtra(Intent.EXTRA_TEXT,"saim.cse.du.744@gmail.com");
                 startActivity(Intent.createChooser(intent,"Contact Via"));
             }
         });
@@ -141,7 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_SUBJECT,"Check Out this Cool Application");
-                intent.putExtra(Intent.EXTRA_TEXT,"Enjoy This Application!");
+                intent.putExtra(Intent.EXTRA_TEXT,"Enjoy & Share This Application!");
                 startActivity(Intent.createChooser(intent,"Share Via"));
             }
         });
