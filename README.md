@@ -11,7 +11,7 @@ since people don't go to stores physically, they shop online. According to resea
 
 
 ## **APK URL**
-[MetaMart.apk](https://drive.google.com/file/d/1rnRYMfLjgYBY91ipNzYo5NBhdgHs8XbG/view?usp=sharing)
+[MetaMart.apk](https://drive.google.com/file/d/1SA8FcFpMuSxhKBrZsw4Z588DMM-AIhxn/view?usp=sharing)
 
 ## **Project Demonstration**
 [MetaMart/youtubeVideo](https://www.youtube.com/watch?v=J5-e7tMnef8&list=PLqM-Y2MZhNujIZOFcIijZMv4n7oB74kay&index=3)
