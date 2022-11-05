@@ -1,4 +1,4 @@
-![Logo](/resources/metamartcoverpage.png)
+![Logo](/resources/MetaMartcoverpage.png)
 
 > A Project developed for Android Studio
 
