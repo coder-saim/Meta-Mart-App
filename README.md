@@ -16,6 +16,8 @@ since people don't go to stores physically, they shop online. According to resea
 ## **Project Demonstration**
 [MetaMart/youtubeVideo](https://www.youtube.com/watch?v=J5-e7tMnef8&list=PLqM-Y2MZhNujIZOFcIijZMv4n7oB74kay&index=3)
 
+## **Firebase JSON File URL**
+[Firebase.json](https://drive.google.com/file/d/1JTT5iaryPyDNen2qrH3G2lg5cG9l5zp5/view?usp=sharing)
 
 ## **Platform & Technology**
 
